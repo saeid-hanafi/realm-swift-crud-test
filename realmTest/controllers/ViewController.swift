@@ -17,8 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet var deleteUserBtn: UIButton!
     @IBOutlet var updateUserBtn: UIButton!
     @IBOutlet var getUserBtn: UIButton!
-    @IBOutlet var userInfoTable: UITableView!
     private var realmModel: RealMManager!
+    private var displayUsers: [User] = [User]()
+    private static let userTableSegue: String = "userTableSegue"
+    private static let userCollectionSegue: String = "userCollectionSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +89,13 @@ class ViewController: UIViewController {
         mailField.text = ""
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let destination = segue.destination as! UserTableVC
+        
+        let destination = segue.destination as!  UserCollectionVC
+        destination.users = self.displayUsers
+    }
+    
 }
 
 extension ViewController: RealmDelegate {
@@ -105,7 +114,9 @@ extension ViewController: RealmDelegate {
     }
     
     func getUsers(data: [User]) {
-        print(data)
+        self.displayUsers = data
+//        self.performSegue(withIdentifier: ViewController.userTableSegue, sender: ViewController.self)
+        self.performSegue(withIdentifier: ViewController.userCollectionSegue, sender: ViewController.self)
     }
     
     func realmFailed(error: String) {
@@ -113,5 +124,36 @@ extension ViewController: RealmDelegate {
     }
     
     
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if displayUsers.count > indexPath.row {
+            print(displayUsers[indexPath.row])
+        }else{
+            print("Some Thing is wrong!!")
+        }
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.displayUsers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "users", for: indexPath)
+        
+        cell.textLabel?.text = self.displayUsers[indexPath.row].username
+        
+        return cell
+    }
 }
 
