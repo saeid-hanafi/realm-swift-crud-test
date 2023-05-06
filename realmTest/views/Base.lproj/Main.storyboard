@@ -307,18 +307,18 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="caE-FG-3Q9">
-                                    <size key="itemSize" width="150" height="150"/>
-                                    <size key="estimatedItemSize" width="150" height="150"/>
+                                    <size key="itemSize" width="110" height="110"/>
+                                    <size key="estimatedItemSize" width="110" height="110"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userCollectionCellID" id="vD9-AL-PPK" customClass="UserCollectionCell" customModule="realmTest" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="slc-kP-tSh">
@@ -353,7 +353,7 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="slc-kP-tSh" secondAttribute="trailing" id="xvJ-jC-8Mc"/>
                                             <constraint firstItem="slc-kP-tSh" firstAttribute="top" secondItem="vD9-AL-PPK" secondAttribute="topMargin" id="zUx-vE-OZD"/>
                                         </constraints>
-                                        <size key="customSize" width="150" height="150"/>
+                                        <size key="customSize" width="110" height="110"/>
                                         <connections>
                                             <outlet property="mailCollectionLbl" destination="Wq0-YF-Tgq" id="ijx-63-Fjk"/>
                                             <outlet property="userCollectionLbl" destination="SFo-mL-neF" id="OqE-P9-GHr"/>

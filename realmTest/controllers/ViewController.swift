@@ -95,7 +95,6 @@ class ViewController: UIViewController {
         let destination = segue.destination as!  UserCollectionVC
         destination.users = self.displayUsers
     }
-    
 }
 
 extension ViewController: RealmDelegate {
@@ -156,4 +155,3 @@ extension ViewController: UITableViewDataSource {
         return cell
     }
 }
-
